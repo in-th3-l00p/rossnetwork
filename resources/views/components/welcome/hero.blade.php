@@ -13,24 +13,20 @@
             <h1
                 class="max-w-2xl text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl lg:col-span-2 xl:col-auto"
             >
-                We’re changing the way people connect
+                {{ __("welcome.hero.title")  }}
             </h1>
             <div class="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
                 <p class="text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
-                    Anim aute id magna aliqua ad
-                    ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam
-                    occaecat fugiat aliqua. Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
-                    cupidatat commodo.
+                    {{ __("welcome.hero.description")  }}
                 </p>
                 <div class="mt-10 flex items-center gap-x-6">
                     <a 
                         href="{{ route("login")  }}"
                         class="rounded-md bg-dark px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-darker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
                     >
-                        Get started
+                        {{ __("welcome.hero.button")  }}
                     </a>
-                    <a href="#" class="text-sm/6 font-semibold text-gray-900">Learn more <span
-                            aria-hidden="true">→</span></a>
+                    <a href="#" class="text-sm/6 font-semibold text-gray-900">{{ __("welcome.hero.learn_more")  }}</a>
                 </div>
             </div>
         </div>
