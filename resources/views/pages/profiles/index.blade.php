@@ -32,7 +32,7 @@
         </div>
 
         @foreach (auth()->user()->profiles as $profile)
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-6">
                 <div class="bg-light2 overflow-hidden shadow-sm sm:rounded-lg p-4 sm:p-8">
                     <p>{{ __("First name")  }}: {{ $profile->first_name }}</p>
                     <p>{{ __("Last name")  }}: {{ $profile->last_name }}</p>
