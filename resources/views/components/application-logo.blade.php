@@ -1,5 +1,5 @@
 <img 
     src="/logo.svg" 
     alt="RossNetwork" 
-    class="w-20 aspect-square"
+    {{ $attributes->merge(['class' => 'max-w-20 w-full aspect-square']) }}
 />

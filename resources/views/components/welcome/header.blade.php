@@ -5,7 +5,7 @@
         ['name' => __('layout.nav.events'), 'route' => route('events.index', [], false)],
     ];
 @endphp
-<header class="bg-light" x-data="{ isOpen: false }">
+<header class="bg-light2" x-data="{ isOpen: false }">
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex flex-1">
         <div class="hidden lg:flex lg:gap-x-12">
