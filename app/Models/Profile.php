@@ -14,14 +14,15 @@ class Profile extends Model
         "first_name",
         "last_name",
         "nickname",
-        "email",
-        "phone_number",
+        "birth_date",
+        "gender",
         "address",
         "city",
         "state",
         "zip_code",
         "avatar",
         "bio",
+        "user_id"
     ];
 
     protected $casts = [

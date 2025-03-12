@@ -24,9 +24,8 @@ return new class extends Migration
             $table->string("first_name")->nullable();
             $table->string("last_name")->nullable();
             $table->string("nickname")->nullable();
-
-            $table->string("email")->nullable();
-            $table->string("phone_number")->nullable();
+            $table->date("birth_date")->nullable();
+            $table->string("gender")->nullable();
 
             $table->string("address")->nullable();
             $table->string("city")->nullable();

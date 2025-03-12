@@ -12,9 +12,13 @@ class ProfileController extends Controller
         return view('pages.profiles.index');
     }
 
-    public function create()
+    public function store()
     {
-        return view('pages.profiles.create');
+        $profile = Profile::create([
+            "user_id" => auth()->user()->id,
+        ]);
+
+        return redirect()->route('profiles.edit', $profile);
     }
 
     public function show(Profile $profile)

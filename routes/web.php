@@ -7,19 +7,20 @@ use App\Http\Controllers\EventController;
 
 Route::view('/', 'welcome')->name("home");
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+Route::middleware("auth")->group(function () {
+    Route::view('dashboard', 'dashboard')
+        ->middleware(['verified'])
+        ->name('dashboard');
 
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
+    Route::view('profile', 'profile')
+        ->name('profile');
 
-Route::resource("profiles", ProfileController::class)
-    ->only(['index', 'create', 'show', 'edit']);
-Route::resource("projects", ProjectController::class)
-    ->only(['index', 'create', 'show', 'edit']);
-Route::resource("events", EventController::class)
-    ->only(['index', 'create', 'show', 'edit']);
+    Route::resource("profiles", ProfileController::class)
+        ->only(['index', 'store', 'show', 'edit']);
+    Route::resource("projects", ProjectController::class)
+        ->only(['index', 'create', 'show', 'edit']);
+    Route::resource("events", EventController::class)
+        ->only(['index', 'create', 'show', 'edit']);
+});
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
