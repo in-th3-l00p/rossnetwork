@@ -6,7 +6,7 @@
         <img 
             src="logo.svg"
             alt="logo"
-            class="mb-10 mx-auto max-w-80 object-cover lg:mb-0 lg:mx-0"
+            class="mb-10 mx-auto w-full max-w-72 object-cover lg:mb-0 lg:mx-0"
         >
 
         <div class="space-y-8">
