@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\User;
 
 return new class extends Migration
 {
@@ -14,6 +15,26 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
+            $table
+                ->foreignIdFor(User::class)
+                ->constrained("users")
+                ->cascadeOnDelete();
+
+            $table->string("first_name");
+            $table->string("last_name");
+            $table->string("nickname")->nullable();
+
+            $table->string("email")->nullable();
+            $table->string("phone_number")->nullable();
+
+            $table->string("address")->nullable();
+            $table->string("city")->nullable();
+            $table->string("state")->nullable();
+            $table->string("zip_code")->nullable();
+
+            $table->string("avatar")->nullable();
+            $table->text("bio")->nullable();
         });
     }
 

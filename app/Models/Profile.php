@@ -9,4 +9,33 @@ class Profile extends Model
 {
     /** @use HasFactory<\Database\Factories\ProfileFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        "first_name",
+        "last_name",
+        "nickname",
+        "email",
+        "phone_number",
+        "address",
+        "city",
+        "state",
+        "zip_code",
+        "avatar",
+        "bio",
+    ];
+
+    protected $casts = [
+        "created_at" => "datetime",
+        "updated_at" => "datetime",
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function contacts()
+    {
+        return $this->belongsToMany(Contact::class);
+    }
 }
