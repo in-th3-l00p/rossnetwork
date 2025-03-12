@@ -16,7 +16,7 @@
                 {{ __("welcome.hero.title")  }}
             </h1>
             <div class="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
-                <p class="text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
+                <p class="text-pretty text-lg font-medium text-gray-700 sm:text-xl/8">
                     {{ __("welcome.hero.description")  }}
                 </p>
                 <div class="mt-10 flex items-center gap-x-6">
