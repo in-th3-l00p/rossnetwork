@@ -14,6 +14,30 @@ new class extends Component
 
         $this->redirect('/', navigate: true);
     }
+    
+    public function navigationLinks()
+    {
+        return [
+            [
+                'route' => 'dashboard',
+                'label' => __('Dashboard')
+            ],
+            [
+                'route' => 'profiles.index',
+                'label' => __('Profiles')
+            ]
+        ];
+    }
+    
+    public function dropdownLinks()
+    {
+        return [
+            [
+                'route' => 'profile',
+                'label' => __('Profile')
+            ]
+        ];
+    }
 }; ?>
 
 <nav x-data="{ open: false }" class="bg-light2 border-b border-gray-100">
@@ -29,9 +53,11 @@ new class extends Component
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+                    @foreach($this->navigationLinks() as $link)
+                        <x-nav-link :href="route($link['route'])" :active="request()->routeIs($link['route'])" wire:navigate>
+                            {{ __($link['label']) }}
+                        </x-nav-link>
+                    @endforeach
                 </div>
             </div>
 
@@ -51,9 +77,11 @@ new class extends Component
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile')" wire:navigate>
-                            {{ __('Profile') }}
-                        </x-dropdown-link>
+                        @foreach($this->dropdownLinks() as $link)
+                            <x-dropdown-link :href="route($link['route'])" wire:navigate>
+                                {{ __($link['label']) }}
+                            </x-dropdown-link>
+                        @endforeach
 
                         <!-- Authentication -->
                         <button wire:click="logout" class="w-full text-start">
@@ -80,9 +108,11 @@ new class extends Component
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
+            @foreach($this->navigationLinks() as $link)
+                <x-responsive-nav-link :href="route($link['route'])" :active="request()->routeIs($link['route'])" wire:navigate>
+                    {{ __($link['label']) }}
+                </x-responsive-nav-link>
+            @endforeach
         </div>
 
         <!-- Responsive Settings Options -->
@@ -93,9 +123,11 @@ new class extends Component
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile')" wire:navigate>
-                    {{ __('Profile') }}
-                </x-responsive-nav-link>
+                @foreach($this->dropdownLinks() as $link)
+                    <x-responsive-nav-link :href="route($link['route'])" wire:navigate>
+                        {{ __($link['label']) }}
+                    </x-responsive-nav-link>
+                @endforeach
 
                 <!-- Authentication -->
                 <button wire:click="logout" class="w-full text-start">

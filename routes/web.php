@@ -15,8 +15,11 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-Route::resource("profiles", ProfileController::class);
-Route::resource("projects", ProjectController::class);
-Route::resource("events", EventController::class);
+Route::resource("profiles", ProfileController::class)
+    ->only(['index', 'create', 'show', 'edit']);
+Route::resource("projects", ProjectController::class)
+    ->only(['index', 'create', 'show', 'edit']);
+Route::resource("events", EventController::class)
+    ->only(['index', 'create', 'show', 'edit']);
 
 require __DIR__.'/auth.php';
