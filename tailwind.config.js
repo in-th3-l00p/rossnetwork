@@ -15,6 +15,10 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
         },
+        colors: {
+            "dark": "#7d5a50",
+            "light": "#fdf6f0"
+        }
     },
 
     plugins: [forms],
