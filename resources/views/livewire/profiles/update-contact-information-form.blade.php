@@ -15,15 +15,17 @@ new class extends Component {
 
     public function addContact()
     {
-        $this->profile->contacts()->create([
+        $contract = $this->profile->contacts()->create([
             "name" => "Contact" . $this->profile->contacts()->count() + 1,
             "user_id" => Auth::user()->id
         ]);
 
         $this->dispatch("contact-added");
+        $this->selectedContact = $contract;
+        $this->dispatch("open-modal", "edit-contact");
     }
 
-    public function editContact(Contact $contact)
+    public function openEditModal(Contact $contact)
     {
         $this->selectedContact = $contact;
         $this->name = $contact->name;
@@ -41,9 +43,20 @@ new class extends Component {
             "link" => $this->link,
             // "icon" => $this->icon
         ]);
-        $this->selectedContact = null;
         $this->dispatch("contact-updated");
-        $this->dispatch("close");
+    }
+
+    public function openDeleteModal(Contact $contact)
+    {
+        $this->selectedContact = $contact;
+        $this->dispatch('open-modal', 'delete-contact');
+    }
+
+    public function deleteContact()
+    {
+        $this->selectedContact->delete();
+        $this->dispatch("contact-deleted");
+        $this->dispatch("close-modal", "delete-contact");
     }
 }; ?>
 
@@ -79,10 +92,10 @@ new class extends Component {
                         </a>
                     @endif
                 <div class="flex items-center gap-2 py-2 px-6">
-                    <x-primary-button>
+                    <x-primary-button wire:click="openDeleteModal({{ $contact->id }})">
                         <x-fas-trash class="size-4 shrink-0 text-white" />
                     </x-primary-button>
-                    <x-primary-button wire:click="editContact({{ $contact->id }})">
+                    <x-primary-button wire:click="openEditModal({{ $contact->id }})">
                         <x-fas-pencil class="size-4 shrink-0 text-white" />
                     </x-primary-button>
                 </div>
@@ -90,8 +103,11 @@ new class extends Component {
         @endforeach
 
         <li class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white border border-gray-300 shadow">
-            <button wire:click="addContact"
-                class="flex w-full h-full items-center justify-center space-x-6 p-6 hover:bg-gray-50 transition-all">
+            <button 
+                wire:click="addContact"
+                wire:loading.attr="disabled"
+                class="flex w-full h-full items-center justify-center space-x-6 p-6 hover:bg-gray-50 transition-all"
+            >
                 <x-fas-plus class="size-8 shrink-0 rounded-full text-zinc-900" />
             </button>
         </li>
@@ -116,28 +132,28 @@ new class extends Component {
             <div class="mt-6 space-y-3">
                 <div>
                     <x-input-label for="name" :value="__('Name')" class="sr-only" />
-                    <x-text-input wire:model="name" id="name" name="name" type="text" class="mt-1 block w-full" required
-                        autofocus autocomplete="name" />
+                    <x-text-input wire:model="name" id="name" name="name" type="text" class="mt-1 block w-3/4" required
+                        autofocus autocomplete="name" placeholder="{{ __('Name') }}" wire:loading.attr="disabled" />
                     <x-input-error class="mt-2" :messages="$errors->get('name')" />
                 </div>
 
                 <div>
                     <x-input-label for="description" value="{{ __('Description') }}" class="sr-only" />
                     <x-text-input wire:model="description" id="description" name="description" type="text"
-                        class="mt-1 block w-3/4" placeholder="{{ __('Description') }}" />
+                        class="mt-1 block w-3/4" placeholder="{{ __('Description') }}" wire:loading.attr="disabled" />
                     <x-input-error class="mt-2" :messages="$errors->get('description')" />
                 </div>
 
                 <div>
                     <x-input-label for="link" value="{{ __('Link') }}" class="sr-only" />
                     <x-text-input wire:model="link" id="link" name="link" type="text" class="mt-1 block w-3/4"
-                        placeholder="{{ __('Link') }}" />
+                        placeholder="{{ __('Link') }}" wire:loading.attr="disabled" />
                     <x-input-error class="mt-2" :messages="$errors->get('link')" />
                 </div>
             </div>
 
             <div class="mt-6 flex items-center gap-3">
-                <x-primary-button>
+                <x-primary-button wire:loading.attr="disabled">
                     {{ __('Save') }}
                 </x-primary-button>
 
@@ -148,6 +164,28 @@ new class extends Component {
                 <x-action-message on="contact-updated">
                     {{ __('Saved.') }}
                 </x-action-message>
+            </div>
+        </form>
+    </x-modal>
+
+    <x-modal name="delete-contact" :show="$selectedContact" focusable>
+        <form wire:submit="deleteContact" class="p-6">
+            <h2 class="text-lg font-medium text-gray-900">
+                {{ __('Delete contact') }}
+            </h2>
+
+            <p class="mt-1 text-sm text-gray-600">
+                {{ __('Are you sure you want to delete this contact?') }}
+            </p>
+
+            <div class="mt-6 flex items-center gap-3">
+                <x-primary-button wire:loading.attr="disabled">
+                    {{ __('Delete') }}
+                </x-primary-button>
+
+                <x-secondary-button x-on:click="$dispatch('close')">
+                    {{ __('Cancel') }}
+                </x-secondary-button>
             </div>
         </form>
     </x-modal>
