@@ -5,7 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\EventController;
 
-Route::view('/', 'welcome');
+Route::view('/', 'welcome')->name("home");
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
