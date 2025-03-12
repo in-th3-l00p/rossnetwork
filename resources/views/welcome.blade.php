@@ -19,6 +19,7 @@
     <body class="antialiased font-sans">
         <x-welcome.header />
         <x-welcome.hero />
+        <x-welcome.events />
         <x-welcome.people />
     </body>
 </html>
