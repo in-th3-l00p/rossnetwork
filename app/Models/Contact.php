@@ -15,6 +15,7 @@ class Contact extends Model
         "link",
         "icon",
         "description",
+        "user_id"
     ];
 
     protected $casts = [
