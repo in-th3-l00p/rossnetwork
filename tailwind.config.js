@@ -14,12 +14,11 @@ export default {
             fontFamily: {
                 sans: ['Nunito', 'sans-serif'],
             },
+            colors: {
+                "dark": "#7d5a50",
+                "light": "#fdf6f0"
+            }
         },
-        colors: {
-            "dark": "#7d5a50",
-            "light": "#fdf6f0"
-        }
     },
-
     plugins: [forms],
 };

@@ -17,6 +17,7 @@
         <script src="//unpkg.com/alpinejs" defer></script>
     </head>
     <body class="antialiased font-sans">
-        <x-header />
+        <x-welcome.header />
+        <x-welcome.hero />
     </body>
 </html>
