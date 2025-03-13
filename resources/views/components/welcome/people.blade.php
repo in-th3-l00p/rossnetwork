@@ -1,4 +1,4 @@
-<div class="bg-light py-24 sm:py-32">
+<div class="bg-light pt-24 sm:pt-32">
     <div class="mx-auto max-w-7xl px-6 text-center lg:px-8">
       <div class="mx-auto max-w-2xl">
         <h2 class="text-3xl text-balance font-semibold tracking-tight sm:text-5xl text-gray-900">Latest submitted profiles</h2>

@@ -1,6 +1,6 @@
 <div class="relative isolate overflow-hidden">
     <div @class([
-        "mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8",
+        "mx-auto max-w-7xl px-6 pt-24 sm:pt-32 lg:px-8",
         "grid grid-cols-1 lg:grid-cols-2 lg:gap-x-16 lg:items-center"
     ])>
         <img 
