@@ -17,10 +17,11 @@
         <script src="//unpkg.com/alpinejs" defer></script>
     </head>
     <body class="antialiased font-sans">
-        <x-welcome.header />
+        <x-layout.header />
         <x-welcome.hero />
         <x-welcome.events />
         <x-welcome.people />
         <x-welcome.projects />
+        <x-layout.footer />
     </body>
 </html>
