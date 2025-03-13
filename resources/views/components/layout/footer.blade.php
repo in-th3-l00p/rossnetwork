@@ -7,13 +7,13 @@
                         <h3 class="text-sm/6 font-semibold text-gray-900">Explore</h3>
                         <ul role="list" class="mt-6 space-y-4">
                             <li>
-                                <a href="{{ route('events.index') }}" class="text-sm/6 text-gray-600 hover:text-gray-900">Events</a>
+                                <a href="{{ route('public.events.index') }}" class="text-sm/6 text-gray-600 hover:text-gray-900">Events</a>
                             </li>
                             <li>
-                                <a href="{{ route('projects.index') }}" class="text-sm/6 text-gray-600 hover:text-gray-900">Projects</a>
+                                <a href="{{ route('public.projects.index') }}" class="text-sm/6 text-gray-600 hover:text-gray-900">Projects</a>
                             </li>
                             <li>
-                                <a href="{{ route('profiles.index') }}" class="text-sm/6 text-gray-600 hover:text-gray-900">Profiles</a>
+                                <a href="{{ route('public.profiles.index') }}" class="text-sm/6 text-gray-600 hover:text-gray-900">Profiles</a>
                             </li>
                         </ul>
                     </div>
