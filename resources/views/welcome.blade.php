@@ -21,5 +21,6 @@
         <x-welcome.hero />
         <x-welcome.events />
         <x-welcome.people />
+        <x-welcome.projects />
     </body>
 </html>

@@ -33,7 +33,7 @@
             <!-- More posts... -->
         </div>
         <div class="mt-20 flex justify-center">
-            <a href="{{ route('profiles.index') }}" class="block mx-auto">
+            <a href="{{ route('events.index') }}" class="block mx-auto">
                 <x-primary-button>
                     View all events
                 </x-primary-button>
