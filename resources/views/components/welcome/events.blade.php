@@ -4,7 +4,7 @@
             <h2 class="text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">Upcoming events</h2>
             <p class="mt-2 text-lg/8 text-gray-600">Checkout the latest events submitted by our users.</p>
         </div>
-        <div class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        <div class="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             <article class="flex flex-col items-start justify-between">
                 <div class="relative w-full">
                     <img src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80"
@@ -32,7 +32,7 @@
 
             <!-- More posts... -->
         </div>
-        <div class="mt-20 flex justify-center">
+        <div class="mt-8 flex justify-center">
             <a href="{{ route('events.index') }}" class="block mx-auto">
                 <x-primary-button>
                     View all events
