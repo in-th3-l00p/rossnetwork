@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_2fr] xl:grid-cols-[1fr_3fr] gap-6">
-            <div class="sm:mx-auto sm:rounded-lg p-4 sm:p-8 bg-light2 shadow lg:rounded-lg self-start space-y-6">
+            <x-container class="sm:mx-auto self-start space-y-6">
                 <img src="https://images.pexels.com/photos/1205033/pexels-photo-1205033.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     alt="profile" class="w-full aspect-square rounded-full object-cover max-w-64 mx-auto">
 
@@ -21,9 +21,9 @@
                         <livewire:profiles.delete-button :profile="$profile" />
                     </div>
                 @endif
-            </div>
+            </x-container>
 
-            <div class="p-4 sm:p-8 bg-light2 shadow lg:rounded-lg">
+            <x-container>
                 <div class="mb-6">
                     <h3 class="text-base/7 font-semibold text-zinc-900">{{ __('Profile Details') }}</h3>
                     <p class="mt-1 max-w-2xl text-sm/6 text-zinc-500">
@@ -105,7 +105,7 @@
                         @endif
                     </dl>
                 </div>
-            </div>
+            </x-container>
         </div>
     </div>
 </x-app-layout>

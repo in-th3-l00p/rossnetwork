@@ -7,41 +7,43 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-light2 shadow sm:rounded-lg">
+            <x-container>
                 <div class="max-w-xl">
                     <livewire:profiles.update-profile-information :profile="$profile" />
                 </div>
-            </div>
+            </x-container>
         </div>
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 mt-6">
-            <div class="p-4 sm:p-8 bg-light2 shadow sm:rounded-lg">
+            <x-container>
                 <div class="max-w-xl">
                     <livewire:profiles.update-general-information-form :profile="$profile" />
                 </div>
-            </div>
+            </x-container>
         </div>
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 mt-6">
-            <div class="p-4 sm:p-8 bg-light2 shadow sm:rounded-lg">
+            <x-container>
                 <div class="max-w-xl">
                     <livewire:profiles.update-address-information-form :profile="$profile" />
                 </div>
-            </div>
+            </x-container>
         </div>
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 mt-6">
-            <div class="p-4 sm:p-8 bg-light2 shadow sm:rounded-lg">
+            <x-container>
                 <div class="max-w-xl">
                     <livewire:profiles.update-bio-form :profile="$profile" />
                 </div>
-            </div>
+            </x-container>
         </div>
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 mt-6">
-            <div class="p-4 sm:p-8 bg-light2 shadow sm:rounded-lg">
-                <livewire:profiles.update-contact-information-form :profile="$profile" />
-            </div>
+            <x-container>
+                <div class="max-w-xl">
+                    <livewire:profiles.update-contact-information-form :profile="$profile" />
+                </div>
+            </x-container>
         </div>
     </div>
 </x-app-layout>

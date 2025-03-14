@@ -8,7 +8,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-light2 overflow-hidden shadow-sm sm:rounded-lg p-4 sm:p-8">
+            <x-container class="overflow-hidden">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <header>
                         <h2 class="text-lg font-medium text-gray-900">
@@ -23,7 +23,7 @@
                         <livewire:profiles.create-modal />
                     </div>
                 </div>
-            </div>
+            </x-container>
         </div>
 
         @foreach (auth()->user()->profiles as $profile)

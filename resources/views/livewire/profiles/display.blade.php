@@ -7,7 +7,7 @@ state("profile");
 ?>
 
 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-6">
-    <div class="bg-light2 flex justify-between overflow-hidden shadow-sm sm:rounded-lg p-4 sm:p-8">
+    <x-container class="flex justify-between">
         <div>
             <h2 class="text-lg font-medium text-gray-900">
                 {{ $profile->name }}
@@ -29,6 +29,5 @@ state("profile");
             </a>
             <livewire:profiles.delete-button :profile="$profile" />
         </div>
-    </div>
-</div>
+    </x-container>
 </div>
