@@ -1,9 +1,6 @@
 <?php
 
 use App\Models\Profile;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Validation\Rule;
 use Livewire\Volt\Component;
 
 new class extends Component
