@@ -72,26 +72,27 @@ new class extends Component {
     </header>
 
     <ul role="list" class="w-full grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-6">
-        @foreach ($this->profile->contacts as $contact)
+        @foreach ($profile->contacts as $contact)
             <li class="col-span-1 divide-y divide-gray-200 rounded-lg bg-white border border-gray-300 shadow">
-                @if ($contact->link)
-                    <a href="{{ $contact->link }}">
-                @endif
-                    <div class="flex w-full items-center justify-between space-x-6 p-6">
-                        <div class="flex-1 truncate">
-                            <div class="flex items-center space-x-3">
-                                <h3 class="truncate text-sm font-medium text-gray-900">{{ $contact->name }}</h3>
-                            </div>
-                            <p class="mt-1 truncate text-sm text-gray-500">{{ $contact->description }}</p>
+                <div class="flex w-full items-center justify-between space-x-6 p-6">
+                    <div class="flex-1 truncate">
+                        <div class="flex items-center space-x-3">
+                            <h3 class="truncate text-sm font-medium text-gray-900">{{ $contact->name }}</h3>
                         </div>
-                        @if ($contact->icon)
-                            <img class="size-10 shrink-0 rounded-full" src="{{ $contact->icon }}" alt="">
-                        @endif
+                        <p class="mt-1 truncate text-sm text-gray-500">{{ $contact->description }}</p>
                     </div>
+                    @if ($contact->icon)
+                        <img class="size-10 shrink-0 rounded-full" src="{{ $contact->icon }}" alt="">
+                    @endif
+                </div>
+                <div class="flex items-center gap-2 py-2 px-6">
                     @if ($contact->link)
+                        <a href="{{ $contact->link }}" target="_blank">
+                            <x-primary-button title="{{ __('View') }}">
+                                <x-fas-link class="size-4 shrink-0 text-white" />
+                            </x-primary-button>
                         </a>
                     @endif
-                <div class="flex items-center gap-2 py-2 px-6">
                     <x-primary-button wire:click="openDeleteModal({{ $contact->id }})">
                         <x-fas-trash class="size-4 shrink-0 text-white" />
                     </x-primary-button>

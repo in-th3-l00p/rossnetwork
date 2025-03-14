@@ -40,9 +40,7 @@
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 mt-6">
             <x-container>
-                <div class="max-w-xl">
-                    <livewire:profiles.update-contact-information-form :profile="$profile" />
-                </div>
+                <livewire:profiles.update-contact-information-form :profile="$profile" />
             </x-container>
         </div>
     </div>
