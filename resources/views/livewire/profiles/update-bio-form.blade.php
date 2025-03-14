@@ -38,7 +38,7 @@ new class extends Component
         </p>
     </header>
 
-    <form wire:submit="updateGeneralInformation" class="mt-6 space-y-6">
+    <form wire:submit="updateBio" class="mt-6 space-y-6">
         <div>
             <x-input-label for="bio" :value="__('Bio')" />
             <x-textarea
