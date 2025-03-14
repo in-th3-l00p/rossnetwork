@@ -21,6 +21,9 @@ return new class extends Migration
                 ->constrained("users")
                 ->cascadeOnDelete();
 
+            $table->string("name");
+            $table->text("description")->nullable();
+
             $table->string("first_name")->nullable();
             $table->string("last_name")->nullable();
             $table->string("nickname")->nullable();
