@@ -28,7 +28,10 @@ $createProfile = function () {
 ?>
 
 <div>
-    <x-primary-button title="{{ __('Create') }}" x-on:click="$dispatch('open-modal', 'create-profile-modal')">
+    <x-primary-button 
+        title="{{ __('Create') }}" 
+        x-on:click="$dispatch('open-modal', 'create-profile-modal')"
+    >
         {{ __('Create') }}
     </x-primary-button>
 
