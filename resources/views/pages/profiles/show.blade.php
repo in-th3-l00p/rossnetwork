@@ -18,9 +18,7 @@
                                 <x-fas-pencil class="size-4 shrink-0 text-white" />
                             </x-primary-button>
                         </a>
-                        <x-danger-button title="{{ __('Delete') }}">
-                            <x-fas-trash class="size-4 shrink-0 text-white" />
-                        </x-danger-button>
+                        <livewire:profiles.delete-button :profile="$profile" />
                     </div>
                 @endif
             </div>
