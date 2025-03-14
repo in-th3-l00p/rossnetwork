@@ -20,12 +20,7 @@
                         </p>
                     </header>
                     <div class="flex justify-end items-center">
-                        <form action="{{ route('profiles.store') }}" method="POST">
-                            @csrf
-                            <x-primary-button title="{{ __('Create') }}">
-                                {{ __('Create') }}
-                            </x-primary-button>
-                        </form>
+                        <livewire:profiles.create-modal />
                     </div>
                 </div>
             </div>
