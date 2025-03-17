@@ -42,4 +42,19 @@ class Profile extends Model
     {
         return $this->belongsToMany(Contact::class);
     }
+
+    public function isEmpty(): bool {
+        return
+            $this->first_name == null &&
+            $this->last_name == null &&
+            $this->nickname == null &&
+            $this->birth_date == null &&
+            $this->gender == null &&
+            $this->address == null &&
+            $this->city == null &&
+            $this->state == null &&
+            $this->zip_code == null &&
+            $this->avatar == null &&
+            $this->bio == null;
+    }
 }

@@ -23,15 +23,21 @@
                 @endif
             </x-container>
 
-            <x-container>
+            <x-container class="flex flex-col">
                 <div class="mb-6">
                     <h3 class="text-base/7 font-semibold text-zinc-900">{{ __('Profile Details') }}</h3>
                     <p class="mt-1 max-w-2xl text-sm/6 text-zinc-500">
                         {{ __('Here you can see the details of the profile.') }}
                     </p>
                 </div>
-                <div class="border-t border-zinc-300">
-                    <dl class="divide-y divide-zinc-300">
+                <div class="border-t border-zinc-300 flex-grow">
+                    <dl class="divide-y divide-zinc-300 h-full">
+                        @if ($profile->isEmpty())
+                            <div class="w-full h-full flex flex-col justify-center items-center">
+                                <h3 class="mt-2 text-sm font-semibold text-gray-900">Empty profile</h3>
+                                <p class="mt-1 text-sm text-gray-500">The user hasn't submitted any information about himself.</p>
+                            </div>
+                        @endif
                         @if ($profile->first_name)
                             <div class="py-6 sm:grid sm:grid-cols-3 sm:gap-4">
                                 <dt class="text-sm font-medium text-zinc-900">{{ __("First name") }}</dt>
@@ -88,7 +94,7 @@
                                                 </div>
                                                 @if ($contact->link)
                                                 <div class="ml-4 shrink-0">
-                                                    <a 
+                                                    <a
                                                         href="{{ $contact->link }}"
                                                         class="font-medium text-dark hover:text-darker"
                                                         target="_blank"
