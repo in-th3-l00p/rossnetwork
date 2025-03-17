@@ -27,11 +27,6 @@ Route::resource(
     [ "as" => "public" ]
 )
     ->only(['index', 'show']);
-Route::view('about', 'public.about')->name('about');
-Route::view('contact', 'public.contact')->name('contact');
-Route::view('terms-of-service', 'public.terms-of-service')->name('terms-of-service');
-Route::view('privacy', 'public.privacy')->name('privacy');
-Route::view('license', 'public.license')->name('license');
 
 Route::middleware("auth")->group(function () {
     Route::view('dashboard', 'dashboard')
