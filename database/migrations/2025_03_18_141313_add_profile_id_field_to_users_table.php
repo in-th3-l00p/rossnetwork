@@ -12,11 +12,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('user', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table
-                ->foreignIdFor(Profile::class, 'selected_profile_id')
+                ->foreignIdFor(Profile::class)
                 ->nullable()
-                ->constrained("selected_profile_id");
+                ->constrained("profiles");
         });
     }
 
@@ -25,11 +25,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('user', function (Blueprint $table) {
-            $table->dropForeignIdFor(
-                Profile::class,
-                'selected_profile_id'
-            );
+        Schema::table('users', function (Blueprint $table) {
+            $table
+                ->dropForeignIdFor(Profile::class);
         });
     }
 };
