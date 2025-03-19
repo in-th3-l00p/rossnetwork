@@ -7,33 +7,66 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-light2 shadow sm:rounded-lg">
+            <x-container>
+                <div class="max-w-xl">
+                    <header>
+                        <h2 class="text-lg font-medium text-gray-900">
+                            {{ __('Actions') }}
+                        </h2>
+
+                        <p class="mt-1 text-sm text-gray-600">
+                            {{ __("Here you can see all the actions that you can do with your profile.") }}
+                        </p>
+                    </header>
+
+                    <div class="flex gap-3 flex-wrap items-center mt-6">
+                        <a href="{{ route('profiles.show', $profile->id) }}">
+                            <x-primary-button title="{{ __('View') }}">
+                                <x-fas-eye class="size-4 shrink-0 text-white" />
+                            </x-primary-button>
+                        </a>
+                        <livewire:profiles.delete-button :profile="$profile" />
+                    </div>
+                </div>
+            </x-container>
+        </div>
+
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 mt-6">
+            <x-container>
+                <div class="max-w-xl">
+                    <livewire:profiles.update-profile-information :profile="$profile" />
+                </div>
+            </x-container>
+        </div>
+
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 mt-6">
+            <x-container>
                 <div class="max-w-xl">
                     <livewire:profiles.update-general-information-form :profile="$profile" />
                 </div>
-            </div>
+            </x-container>
         </div>
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 mt-6">
-            <div class="p-4 sm:p-8 bg-light2 shadow sm:rounded-lg">
+            <x-container>
                 <div class="max-w-xl">
                     <livewire:profiles.update-address-information-form :profile="$profile" />
                 </div>
-            </div>
+            </x-container>
         </div>
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 mt-6">
-            <div class="p-4 sm:p-8 bg-light2 shadow sm:rounded-lg">
+            <x-container>
                 <div class="max-w-xl">
                     <livewire:profiles.update-bio-form :profile="$profile" />
                 </div>
-            </div>
+            </x-container>
         </div>
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 mt-6">
-            <div class="p-4 sm:p-8 bg-light2 shadow sm:rounded-lg">
+            <x-container>
                 <livewire:profiles.update-contact-information-form :profile="$profile" />
-            </div>
+            </x-container>
         </div>
     </div>
 </x-app-layout>

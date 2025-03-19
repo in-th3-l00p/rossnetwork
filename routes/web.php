@@ -38,7 +38,7 @@ Route::middleware("auth")->group(function () {
 
     Route::prefix("dashboard")->group(function () {
         Route::resource("profiles", ProfileController::class)
-            ->only(['index', 'store', 'show', 'edit']);
+            ->only(['index', 'show', 'edit']);
         Route::resource("projects", ProjectController::class)
             ->only(['index', 'create', 'show', 'edit']);
         Route::resource("events", EventController::class)

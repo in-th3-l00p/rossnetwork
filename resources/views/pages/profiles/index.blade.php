@@ -8,7 +8,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-light2 overflow-hidden shadow-sm sm:rounded-lg p-4 sm:p-8">
+            <x-container class="overflow-hidden">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <header>
                         <h2 class="text-lg font-medium text-gray-900">
@@ -20,42 +20,29 @@
                         </p>
                     </header>
                     <div class="flex justify-end items-center">
-                        <form action="{{ route('profiles.store') }}" method="POST">
-                            @csrf
-                            <x-primary-button title="{{ __('Create') }}">
-                                {{ __('Create') }}
-                            </x-primary-button>
-                        </form>
+                        <livewire:profiles.create-modal />
                     </div>
                 </div>
-            </div>
+            </x-container>
         </div>
 
-        @foreach (auth()->user()->profiles as $profile)
+        @forelse (auth()->user()->profiles as $profile)
+            <livewire:profiles.display :profile="$profile" />
+        @empty
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-6">
-                <div class="bg-light2 overflow-hidden shadow-sm sm:rounded-lg p-4 sm:p-8">
-                    <div class="flex justify-end items-center gap-2 mb-6">
-                        <a href="{{ route('profiles.edit', $profile->id) }}">
-                            <x-primary-button>
-                                <x-fas-pencil class="size-4 shrink-0 text-white" />
-                            </x-primary-button>
-                        </a>
+                <x-container>
+                    <div class="text-center">
+                        <svg class="mx-auto size-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            aria-hidden="true">
+                            <path vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+                        </svg>
+                        <h3 class="mt-2 text-sm font-semibold text-gray-900">No profiles</h3>
+                        <p class="mt-1 text-sm text-gray-500">Get started by creating a new profile.</p>
                     </div>
-
-                    <p>{{ __("First name")  }}: {{ $profile->first_name }}</p>
-                    <p>{{ __("Last name")  }}: {{ $profile->last_name }}</p>
-                    <p>{{ __("Birth date")  }}: {{ $profile->birth_date }}</p>`
-                    <p>{{ __("Gender")  }}: {{ $profile->gender }}</p>
-                    <p>{{ __("Nickname")  }}: {{ $profile->nickname }}</p>
-                    <p>{{ __("Address")  }}: {{ $profile->address }}</p>
-                    <p>{{ __("City")  }}: {{ $profile->city }}</p>
-                    <p>{{ __("State")  }}: {{ $profile->state }}</p>
-                    <p>{{ __("Zip code")  }}: {{ $profile->zip_code }}</p>
-                    <p>{{ __("Avatar")  }}: {{ $profile->avatar }}</p>
-                    <p>{{ __("Bio")  }}: {{ $profile->bio }}</p>
-
-                </div>
+                </x-container>
             </div>
-        @endforeach
+        @endforelse
     </div>
 </x-app-layout>
