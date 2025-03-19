@@ -7,7 +7,9 @@
 
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <livewire:profile.profile-select />
+
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-6">
             <x-container class="overflow-hidden">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <header>
