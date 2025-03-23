@@ -10,22 +10,21 @@ use App\Http\Controllers\PublicEventController;
 
 Route::view('/', 'welcome')->name("home");
 
-/*
 Route::resource(
-    "profiles", 
-    PublicProfileController::class, 
+    "profiles",
+    PublicProfileController::class,
     [ "as" => "public" ]
 )
     ->only(['index', 'show']);
 Route::resource(
-    "projects", 
-    PublicProjectController::class, 
+    "projects",
+    PublicProjectController::class,
     [ "as" => "public" ]
 )
     ->only(['index', 'show']);
 Route::resource(
-    "events", 
-    PublicEventController::class, 
+    "events",
+    PublicEventController::class,
     [ "as" => "public" ]
 )
     ->only(['index', 'show']);
@@ -49,5 +48,3 @@ Route::middleware("auth")->group(function () {
 });
 
 require __DIR__ . '/auth.php';
-
-*/
