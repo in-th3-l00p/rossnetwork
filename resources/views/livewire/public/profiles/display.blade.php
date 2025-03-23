@@ -24,12 +24,6 @@ new class extends Component {
         return $this->profile->description ?? $this->profile->bio ?? 'No description available';
     }
     
-    public function getAvatarUrl()
-    {
-        return $this->profile->avatar 
-            ? asset('storage/' . $this->profile->avatar)
-            : 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60';
-    }
 }; ?>
 
 <div>
@@ -37,7 +31,7 @@ new class extends Component {
         <div class="flex flex-1 flex-col p-8">
             <img
                 class="mx-auto size-32 shrink-0 rounded-full"
-                src="{{ $this->getAvatarUrl() }}"
+                src="{{ $this->profile->profilePicture() }}"
                 alt="{{ $this->getDisplayName() }}"
             >
             <h3 class="mt-6 text-sm font-medium text-zinc-900">{{ $this->getDisplayName() }}</h3>

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 class Profile extends Model
 {
@@ -25,7 +26,8 @@ class Profile extends Model
         "zip_code",
         "avatar",
         "bio",
-        "user_id"
+        "user_id",
+        "profile_picture",
     ];
 
     protected $casts = [
@@ -56,5 +58,15 @@ class Profile extends Model
             $this->zip_code == null &&
             $this->avatar == null &&
             $this->bio == null;
+    }
+
+    public function profilePicture(): string {
+        if ($this->profile_picture) {
+            return Storage::url($this->profile_picture);
+        }
+        return
+            "https://ui-avatars.com/api/?name=" .
+            urlencode($this->first_name . " " . $this->last_name) .
+            "&color=7d5a50&background=e6dfd7";
     }
 }
