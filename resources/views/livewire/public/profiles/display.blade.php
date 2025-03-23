@@ -5,25 +5,6 @@ use \App\Models\Profile;
 
 new class extends Component {
     public Profile $profile;
-
-    public function getDisplayName()
-    {
-        if ($this->profile->first_name && $this->profile->last_name) {
-            return $this->profile->first_name . ' ' . $this->profile->last_name;
-        } elseif ($this->profile->nickname) {
-            return $this->profile->nickname;
-        } elseif ($this->profile->name) {
-            return $this->profile->name;
-        }
-
-        return 'Anonymous User';
-    }
-
-    public function getDescription()
-    {
-        return $this->profile->title ?? "User";
-    }
-
 }; ?>
 
 <div>
@@ -32,12 +13,12 @@ new class extends Component {
             <img
                 class="mx-auto size-32 shrink-0 rounded-full"
                 src="{{ $this->profile->profilePicture() }}"
-                alt="{{ $this->getDisplayName() }}"
+                alt="{{ $this->profile->getDisplayName() }}"
             >
-            <h3 class="mt-6 text-sm font-medium text-zinc-900">{{ $this->getDisplayName() }}</h3>
+            <h3 class="mt-6 text-sm font-medium text-zinc-900">{{ $this->profile->getDisplayName() }}</h3>
             <dl class="mt-1 flex grow flex-col justify-between">
                 <dt class="sr-only">Description</dt>
-                <dd class="text-sm text-zinc-500">{{ $this->getDescription() }}</dd>
+                <dd class="text-sm text-zinc-500">{{ $this->profile->title ?? "User" }}</dd>
             </dl>
         </div>
         <div>

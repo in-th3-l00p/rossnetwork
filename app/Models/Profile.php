@@ -71,4 +71,12 @@ class Profile extends Model
             urlencode($this->first_name . " " . $this->last_name) .
             "&color=7d5a50&background=e6dfd7";
     }
+
+    public function getDisplayName(): string {
+        if ($this->first_name && $this->last_name)
+            return "{$this->first_name} {$this->last_name}";
+        else if ($this->nickname)
+            return $this->nickname;
+        return "Anonymous";
+    }
 }
