@@ -14,7 +14,7 @@ new class extends Component
 
         $this->redirect('/', navigate: true);
     }
-    
+
     public function navigationLinks()
     {
         return [
@@ -25,10 +25,14 @@ new class extends Component
             [
                 'route' => 'profiles.index',
                 'label' => __('Profiles')
+            ],
+            [
+                'route' => 'events.index',
+                'label' => __('Events')
             ]
         ];
     }
-    
+
     public function dropdownLinks()
     {
         return [
