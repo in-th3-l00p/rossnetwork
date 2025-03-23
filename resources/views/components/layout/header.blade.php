@@ -1,8 +1,8 @@
 @php
     $navigationLinks = [
-        ['name' => __('layout.nav.profiles'), 'route' => route('profiles.index', [], false)],
-        ['name' => __('layout.nav.projects'), 'route' => route('projects.index', [], false)],
-        ['name' => __('layout.nav.events'), 'route' => route('events.index', [], false)],
+        ['name' => __('layout.nav.profiles'), 'route' => route('public.profiles.index', [], false)],
+        ['name' => __('layout.nav.projects'), 'route' => route('public.projects.index', [], false)],
+        ['name' => __('layout.nav.events'), 'route' => route('public.events.index', [], false)],
     ];
 @endphp
 <header class="bg-light2" x-data="{ isOpen: false }">
@@ -14,16 +14,16 @@
           @endforeach
         </div>
         <div class="flex lg:hidden">
-          <button 
-            type="button" 
-            class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" 
+          <button
+            type="button"
+            class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
             @click="isOpen = true"
             x-show="!isOpen"
-            x-transition:enter="transition ease-out duration-300" 
-            x-transition:enter-start="opacity-0" 
-            x-transition:enter-end="opacity-100" 
-            x-transition:leave="transition ease-in duration-200" 
-            x-transition:leave-start="opacity-100" 
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100"
             x-transition:leave-end="opacity-0"
           >
             <span class="sr-only">{{ __('layout.nav.open') }}</span>
@@ -47,27 +47,27 @@
         @endauth
       </div>
     </nav>
-    <div 
-      class="lg:hidden" 
-      role="dialog" 
-      aria-modal="true" 
-      x-show="isOpen" 
-      x-transition:enter="transition ease-out duration-300" 
-      x-transition:enter-start="opacity-0" 
-      x-transition:enter-end="opacity-100" 
-      x-transition:leave="transition ease-in duration-200" 
-      x-transition:leave-start="opacity-100" 
+    <div
+      class="lg:hidden"
+      role="dialog"
+      aria-modal="true"
+      x-show="isOpen"
+      x-transition:enter="transition ease-out duration-300"
+      x-transition:enter-start="opacity-0"
+      x-transition:enter-end="opacity-100"
+      x-transition:leave="transition ease-in duration-200"
+      x-transition:leave-start="opacity-100"
       x-transition:leave-end="opacity-0"
     >
       <div class="fixed inset-0 z-10 bg-gray-500 bg-opacity-75" x-show="isOpen" @click="isOpen = false"></div>
-      <div 
-        class="fixed inset-y-0 left-0 z-10 w-full overflow-y-auto bg-light px-6 py-6" 
+      <div
+        class="fixed inset-y-0 left-0 z-10 w-full overflow-y-auto bg-light px-6 py-6"
         x-show="isOpen"
-        x-transition:enter="transition ease-out duration-300 transform" 
-        x-transition:enter-start="-translate-x-full" 
-        x-transition:enter-end="translate-x-0" 
-        x-transition:leave="transition ease-in duration-200 transform" 
-        x-transition:leave-start="translate-x-0" 
+        x-transition:enter="transition ease-out duration-300 transform"
+        x-transition:enter-start="-translate-x-full"
+        x-transition:enter-end="translate-x-0"
+        x-transition:leave="transition ease-in duration-200 transform"
+        x-transition:leave-start="translate-x-0"
         x-transition:leave-end="-translate-x-full"
       >
         <div class="flex items-center justify-between">
@@ -82,8 +82,8 @@
         </div>
         <div class="mt-6 space-y-2">
           @foreach ($navigationLinks as $link)
-            <a 
-                href="{{ $link['route'] }}" 
+            <a
+                href="{{ $link['route'] }}"
                 class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
             >{{ $link['name'] }}</a>
           @endforeach
@@ -91,4 +91,3 @@
       </div>
     </div>
   </header>
-  

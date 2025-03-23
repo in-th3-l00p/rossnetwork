@@ -22,11 +22,10 @@
         </li>
       </ul>
 
-      <a href="{{ route('profiles.index') }}" class="inline-block mt-8">
+      <a href="{{ route('public.profiles.index') }}" class="inline-block mt-8">
         <x-primary-button>
           View all profiles
         </x-primary-button>
       </a>
     </div>
   </div>
-  
