@@ -12,13 +12,19 @@ new class extends Component {
 
     public function update()
     {
-        $this->validate([
-            'profile' => 'nullable|exists:profiles,id',
-        ]);
+        if ($this->profile === "null") {
+            auth()->user()->update([
+                'profile_id' => null,
+            ]);
+        } else {
+            $this->validate([
+                'profile' => 'required|exists:profiles,id',
+            ]);
 
-        auth()->user()->update([
-            'profile_id' => $this->profile,
-        ]);
+            auth()->user()->update([
+                'profile_id' => $this->profile,
+            ]);
+        }
     }
 }; ?>
 
@@ -42,15 +48,7 @@ new class extends Component {
                 >
                     <option :value="null">Private</option>
                     @foreach (auth()->user()->profiles as $profile)
-                        <option
-                            value="{{ $profile->id }}"
-                            {{
-                                auth()->user()->currentProfile &&
-                                auth()->user()->currentProfile->id === $profile->id ?
-                                    'selected' :
-                                    ''
-                            }}
-                        >
+                        <option value="{{ $profile->id }}">
                             {{ $profile->name }}
                         </option>
                     @endforeach
