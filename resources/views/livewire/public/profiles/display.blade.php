@@ -5,7 +5,7 @@ use \App\Models\Profile;
 
 new class extends Component {
     public Profile $profile;
-    
+
     public function getDisplayName()
     {
         if ($this->profile->first_name && $this->profile->last_name) {
@@ -15,15 +15,15 @@ new class extends Component {
         } elseif ($this->profile->name) {
             return $this->profile->name;
         }
-        
+
         return 'Anonymous User';
     }
-    
+
     public function getDescription()
     {
-        return $this->profile->description ?? $this->profile->bio ?? 'No description available';
+        return $this->profile->title ?? "User";
     }
-    
+
 }; ?>
 
 <div>
@@ -38,24 +38,16 @@ new class extends Component {
             <dl class="mt-1 flex grow flex-col justify-between">
                 <dt class="sr-only">Description</dt>
                 <dd class="text-sm text-zinc-500">{{ $this->getDescription() }}</dd>
-                @if($profile->user)
-                    <dt class="sr-only">Role</dt>
-                    <dd class="mt-3">
-                        <span class="inline-flex items-center rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-                            {{ $profile->user->role ?? 'User' }}
-                        </span>
-                    </dd>
-                @endif
             </dl>
         </div>
         <div>
             <div class="-mt-px flex divide-x divide-zinc-300">
                 <div class="-ml-px flex w-0 flex-1">
-                    <a 
-                        href="{{ route('public.profiles.show', $profile) }}" 
+                    <a
+                        href="{{ route('public.profiles.show', $profile) }}"
                         @class([
-                            "relative inline-flex w-0 flex-1 items-center justify-center", 
-                            "gap-x-3 rounded-br-lg border border-transparent py-4", 
+                            "relative inline-flex w-0 flex-1 items-center justify-center",
+                            "gap-x-3 rounded-br-lg border border-transparent py-4",
                             "text-sm font-semibold text-zinc-900"
                         ])
                     >

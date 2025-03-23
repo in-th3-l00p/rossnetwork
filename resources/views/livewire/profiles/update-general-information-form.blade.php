@@ -9,6 +9,7 @@ new class extends Component
     public string $first_name = '';
     public string $last_name = '';
     public string $nickname = '';
+    public string $title = '';
     public string $birth_date = '';
     public string $gender = '';
 
@@ -17,6 +18,7 @@ new class extends Component
         $this->first_name = $this->profile->first_name ?? '';
         $this->last_name = $this->profile->last_name ?? '';
         $this->nickname = $this->profile->nickname ?? '';
+        $this->title = $this->profile->title ?? '';
         $this->birth_date = $this->profile->birth_date ?? '';
         $this->gender = $this->profile->gender ?? '';
     }
@@ -27,6 +29,7 @@ new class extends Component
             "first_name" => "nullable|string|max:255",
             "last_name" => "nullable|string|max:255",
             "nickname" => "nullable|string|max:255",
+            "title" => "nullable|string|max:255",
             "birth_date" => "nullable|date",
             "gender" => "nullable|string|max:255",
         ]);
@@ -50,85 +53,100 @@ new class extends Component
     <form wire:submit="updateGeneralInformation" class="mt-6 space-y-6">
         <div>
             <x-input-label for="first_name" :value="__('First name')" />
-            <x-text-input 
-                wire:model="first_name" 
-                id="first_name" 
-                name="first_name" 
-                type="text" 
-                class="mt-1 
-                block 
-                w-full" 
-                autofocus 
-                autocomplete="first_name" 
-                value="{{ $first_name }}" 
+            <x-text-input
+                wire:model="first_name"
+                id="first_name"
+                name="first_name"
+                type="text"
+                class="mt-1
+                block
+                w-full"
+                autofocus
+                autocomplete="first_name"
+                value="{{ $first_name }}"
             />
             <x-input-error class="mt-2" :messages="$errors->get('first_name')" />
         </div>
 
         <div>
             <x-input-label for="last_name" :value="__('Last name')" />
-            <x-text-input 
-                wire:model="last_name" 
-                id="last_name" 
-                name="last_name" 
-                type="text" 
-                class="mt-1 
-                block 
-                w-full" 
-                autofocus 
-                autocomplete="last_name" 
-                value="{{ $last_name }}" 
+            <x-text-input
+                wire:model="last_name"
+                id="last_name"
+                name="last_name"
+                type="text"
+                class="mt-1
+                block
+                w-full"
+                autofocus
+                autocomplete="last_name"
+                value="{{ $last_name }}"
             />
             <x-input-error class="mt-2" :messages="$errors->get('last_name')" />
         </div>
 
         <div>
             <x-input-label for="nickname" :value="__('Nickname')" />
-            <x-text-input 
-                wire:model="nickname" 
-                id="nickname" 
-                name="nickname" 
-                type="text" 
-                class="mt-1 
-                block 
-                w-full" 
-                autofocus 
-                autocomplete="nickname" 
-                value="{{ $nickname }}" 
+            <x-text-input
+                wire:model="nickname"
+                id="nickname"
+                name="nickname"
+                type="text"
+                class="mt-1
+                block
+                w-full"
+                autofocus
+                autocomplete="nickname"
+                value="{{ $nickname }}"
             />
             <x-input-error class="mt-2" :messages="$errors->get('nickname')" />
         </div>
-
+        <div>
+            <x-input-label for="title" :value="__('Title')" />
+            <x-text-input
+                wire:model="title"
+                id="title"
+                name="title"
+                type="text"
+                class="mt-1
+                block
+                w-full"
+                autofocus
+                autocomplete="title"
+                value="{{ $title }}"
+            />
+            <x-input-error class="mt-2" :messages="$errors->get('title')" />
+        </div>
         <div>
             <x-input-label for="birth_date" :value="__('Birth date')" />
-            <x-text-input 
-                wire:model="birth_date" 
-                id="birth_date" 
-                name="birth_date" 
-                type="date" 
-                class="mt-1 
-                block 
-                w-full" 
-                autofocus 
-                autocomplete="birth_date" 
-                value="{{ $birth_date }}" 
+            <x-text-input
+                wire:model="birth_date"
+                id="birth_date"
+                name="birth_date"
+                type="date"
+                class="mt-1
+                block
+                w-full"
+                autofocus
+                autocomplete="birth_date"
+                value="{{ $birth_date }}"
             />
             <x-input-error class="mt-2" :messages="$errors->get('birth_date')" />
         </div>
 
         <div>
             <x-input-label for="gender" :value="__('Gender')" />
-            <x-text-input 
-                wire:model="gender" 
-                id="gender" 
-                name="gender" 
-                type="text" 
-                class="mt-1 
-                block 
-                w-full" 
-                autofocus 
-                autocomplete="gender" 
-                value="{{ $gender }}" 
+            <x-text-input
+                wire:model="gender"
+                id="gender"
+                name="gender"
+                type="text"
+                class="mt-1
+                block
+                w-full"
+                autofocus
+                autocomplete="gender"
+                value="{{ $gender }}"
             />
             <x-input-error class="mt-2" :messages="$errors->get('gender')" />
         </div>

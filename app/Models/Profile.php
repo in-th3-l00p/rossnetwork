@@ -17,6 +17,7 @@ class Profile extends Model
         "description",
         "first_name",
         "last_name",
+        "title",
         "nickname",
         "birth_date",
         "gender",
@@ -57,7 +58,8 @@ class Profile extends Model
             $this->state == null &&
             $this->zip_code == null &&
             $this->avatar == null &&
-            $this->bio == null;
+            $this->bio == null &&
+            $this->title == null;
     }
 
     public function profilePicture(): string {

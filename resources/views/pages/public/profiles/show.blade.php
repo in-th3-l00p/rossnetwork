@@ -78,6 +78,14 @@
                                     </dd>
                                 </div>
                             @endif
+                            @if ($profile->title)
+                                <div class="py-6 sm:grid sm:grid-cols-3 sm:gap-4">
+                                    <dt class="text-sm font-medium text-zinc-900">{{ __("Title") }}</dt>
+                                    <dd class="mt-1 text-sm/6 text-zinc-700 sm:col-span-2 sm:mt-0">
+                                        {{ $profile->title }}
+                                    </dd>
+                                </div>
+                            @endif
                             @if ($profile->birth_date)
                                 <div class="py-6 sm:grid sm:grid-cols-3 sm:gap-4">
                                     <dt class="text-sm font-medium text-zinc-900">{{ __("Birth date") }}</dt>
