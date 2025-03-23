@@ -26,7 +26,7 @@
                         src="https://images.pexels.com/photos/1205033/pexels-photo-1205033.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                         alt="profile" class="w-full aspect-square rounded-full object-cover max-w-64 mx-auto">
 
-                    @if (auth()->user()->profiles->contains($profile->id))
+                    @if (auth()->user() && auth()->user()->profiles->contains($profile->id))
                         <div class="flex justify-center gap-3">
                             <a href="{{ route('profiles.edit', $profile->id) }}">
                                 <x-primary-button title="{{ __('Edit') }}">
