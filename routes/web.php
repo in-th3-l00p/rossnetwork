@@ -9,6 +9,8 @@ use App\Http\Controllers\PublicProjectController;
 use App\Http\Controllers\PublicEventController;
 
 Route::view('/', 'welcome')->name("home");
+
+/*
 Route::resource(
     "profiles", 
     PublicProfileController::class, 
@@ -47,3 +49,5 @@ Route::middleware("auth")->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+
+*/
