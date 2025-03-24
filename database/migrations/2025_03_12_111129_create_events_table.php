@@ -25,13 +25,13 @@ return new class extends Migration
             $table->string("description_short")->nullable();
             $table->text("description")->nullable();
 
-            $table->dateTime("start_date"); 
-            $table->dateTime("end_date");
+            $table->dateTime("start_date")->nullable(); 
+            $table->dateTime("end_date")->nullable();
 
-            $table->string("location");
-            $table->string("city");
-            $table->string("state");
-            $table->string("zip_code");
+            $table->string("location")->nullable();
+            $table->string("city")->nullable();
+            $table->string("state")->nullable();
+            $table->string("zip_code")->nullable();
 
             $table->string("image")->nullable();
             $table->string("url")->nullable();

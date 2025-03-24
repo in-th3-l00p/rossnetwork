@@ -19,11 +19,7 @@
                         </p>
                     </header>
                     <div class="flex justify-end items-center">
-                        <a href="{{ route('events.create') }}">
-                            <x-primary-button>
-                                {{ __('Create') }}
-                            </x-primary-button>
-                        </a>
+                        <livewire:events.create-modal />
                     </div>
                 </div>
             </x-container>
