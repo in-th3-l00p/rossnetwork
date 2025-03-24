@@ -1,4 +1,4 @@
-<div class="relative isolate overflow-hidden">
+<div class="overflow-hidden">
     <div @class([
         "mx-auto max-w-7xl px-6 pt-24 sm:pt-32 lg:px-8",
         "grid grid-cols-1 lg:grid-cols-2 lg:gap-x-16 lg:items-center"
