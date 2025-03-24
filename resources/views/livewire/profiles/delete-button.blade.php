@@ -31,6 +31,10 @@ new class extends Component {
             }
         }
 
+        if ($this->profile->user->profile_id === $this->profile->id) {
+            $this->profile->user->profile_id = null;
+            $this->profile->user->save();
+        }
         $this->profile->delete();
         $this
             ->redirect(route('profiles.index'));
