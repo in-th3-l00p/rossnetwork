@@ -16,7 +16,7 @@ new class extends Component {
             'image' => [
                 'required',
                 'image',
-                'max:2048',
+                'max:10000',
                 'mimes:jpeg,png,jpg,gif',
             ],
         ], [
@@ -78,11 +78,15 @@ new class extends Component {
             <img
                 src="{{ Storage::url($event->image) }}"
                 alt="event"
-                class="w-64 aspect-video rounded-lg shadow-md object-cover bg-light"
+                class="w-80 aspect-video rounded-lg shadow-md object-cover bg-light"
             />
         @else
-            <div class="w-64 aspect-video rounded-lg shadow-md bg-gray-200 flex items-center justify-center">
-                <span class="text-gray-400">No image</span>
+            <div @class([
+                "w-80 aspect-video rounded-lg shadow-md",
+                "bg-light border border-zinc-400",
+                 "flex items-center justify-center"
+            ])>
+                <span class="text-zinc-400">No image</span>
             </div>
         @endif
 
@@ -103,7 +107,7 @@ new class extends Component {
                     hover:file:bg-darker"
                 >
                 <div class="mt-1 text-sm text-gray-500">
-                    JPG, PNG or GIF (max. 2MB).
+                    JPG, PNG or GIF (max. 10MB).
                 </div>
                 @error("image")
                     <span class="text-red-600 text-sm">{{ $message }}</span>
@@ -116,7 +120,7 @@ new class extends Component {
 
             <div class="flex items-center gap-4 mt-4">
                 <x-primary-button wire:loading.attr="disabled">
-                    {{ __('Upload') }}
+                    {{ __('Save') }}
                 </x-primary-button>
 
                 @if($event->image)
@@ -153,4 +157,4 @@ new class extends Component {
             </div>
         </form>
     </x-modal>
-</section> 
+</section>

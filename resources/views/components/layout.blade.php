@@ -13,6 +13,9 @@
 
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @isset($head)
+        {{ $head }}
+    @endisset
 </head>
 <body class="antialiased font-sans">
     {{ $slot }}

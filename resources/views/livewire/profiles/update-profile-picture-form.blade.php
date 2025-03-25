@@ -80,7 +80,7 @@ new class extends Component {
         <img
             src="{{ $profile->profilePicture() }}"
             alt="profile"
-            class="w-64 aspect-square rounded-full shadow-md object-cover bg-light"
+            class="w-64 aspect-square rounded-full shadow-md object-cover bg-light border border-zinc-400"
         />
 
         <form wire:submit="update" class="flex flex-col justify-between">
@@ -116,13 +116,15 @@ new class extends Component {
                     {{ __('Save') }}
                 </x-primary-button>
 
-                <x-danger-button
-                    type="button"
-                    x-on:click="$dispatch('open-modal', 'confirm-profile-picture-deletion')"
-                    wire:loading.attr="disabled"
-                >
-                    {{ __('Remove') }}
-                </x-danger-button>
+                @if ($profile->profile_picture)
+                    <x-danger-button
+                        type="button"
+                        x-on:click="$dispatch('open-modal', 'confirm-profile-picture-deletion')"
+                        wire:loading.attr="disabled"
+                    >
+                        {{ __('Remove') }}
+                    </x-danger-button>
+                @endif
 
                 <x-action-message class="me-3" on="profile-updated">
                     {{ __('Saved.') }}
