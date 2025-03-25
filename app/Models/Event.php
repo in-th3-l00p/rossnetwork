@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Event extends Model
 {
@@ -30,5 +31,16 @@ class Event extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getPicture(): string
+    {
+        if ($this->image) {
+            return Storage::url($this->image);
+        }
+        return
+            "https://ui-avatars.com/api/?name=" .
+            urlencode($this->name) .
+            "&color=7d5a50&background=e6dfd7";
     }
 }
