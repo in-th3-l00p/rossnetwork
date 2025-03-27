@@ -19,8 +19,8 @@
                         <div class="relative w-full">
                             <img src="{{ $event->getPicture() }}"
                                 alt=""
-                                class="aspect-video w-full rounded-2xl bg-zinc-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
-                            <div class="absolute inset-0 rounded-2xl ring-1 ring-inset ring-zinc-900/10"></div>
+                                class="aspect-video w-full rounded-lg bg-zinc-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
+                            <div class="absolute inset-0 rounded-lg ring-1 ring-inset ring-zinc-900/10"></div>
                         </div>
                         <div class="max-w-xl">
                             <div class="mt-8 flex items-center gap-x-4 text-xs">
@@ -48,7 +48,7 @@
             @endforelse
         </div>
         <div class="mt-8 flex justify-center">
-            <a href="{{ route('events.index') }}" class="block mx-auto">
+            <a href="{{ route('public.events.index') }}" class="block mx-auto">
                 <x-primary-button>
                     View all events
                 </x-primary-button>
