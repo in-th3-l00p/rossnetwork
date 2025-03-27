@@ -39,11 +39,11 @@ Route::middleware("auth")->group(function () {
 
     Route::prefix("dashboard")->group(function () {
         Route::resource("profiles", ProfileController::class)
-            ->only(['index', 'show', 'edit']);
+            ->only(['index', 'edit']);
         Route::resource("projects", ProjectController::class)
-            ->only(['index', 'create', 'show', 'edit']);
+            ->only(['index', 'edit']);
         Route::resource("events", EventController::class)
-            ->only(['index', 'create', 'show', 'edit']);
+            ->only(['index', 'edit']);
     });
 });
 

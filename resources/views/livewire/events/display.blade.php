@@ -17,7 +17,7 @@ state("event");
             </p>
         </div>
         <div class="flex flex-wrap justify-end items-center gap-2">
-            <a href="{{ route('events.show', $event->id) }}">
+            <a href="{{ route('public.events.show', $event->id) }}">
                 <x-primary-button title="{{ __('View') }}">
                     <x-fas-eye class="size-4 shrink-0 text-white" />
                 </x-primary-button>

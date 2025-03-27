@@ -12,11 +12,6 @@ class ProfileController extends Controller
         return view('pages.profiles.index');
     }
 
-    public function show(Profile $profile)
-    {
-        return view('pages.public.profiles.show', compact('profile'));
-    }
-
     public function edit(Profile $profile)
     {
         return view('pages.profiles.edit', compact('profile'));

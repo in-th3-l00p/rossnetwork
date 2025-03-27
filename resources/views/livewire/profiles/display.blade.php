@@ -17,7 +17,7 @@ state("profile");
             </p>
         </div>
         <div class="flex flex-wrap justify-end items-center gap-2">
-            <a href="{{ route('profiles.show', $profile->id) }}">
+            <a href="{{ route('public.profiles.show', $profile->id) }}">
                 <x-primary-button title="{{ __('View') }}">
                     <x-fas-eye class="size-4 shrink-0 text-white" />
                 </x-primary-button>
